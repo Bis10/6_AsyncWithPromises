@@ -21,13 +21,21 @@ async function end(data){
 // start().then(middle).then(end).then(console.log);
 
 
-(async function(){
-    const data = await start();
-    console.log(data);
-    console.log(data, 'Moving to the next phase...');
-    const result = await middle(data);
-    console.log(result);
-    const message= await end(result);
-    console.log(message);
-    console.log('We are done');
-})();
+// (async function(){
+//     const data = await start();
+//     console.log(data);
+//     console.log(data, 'Moving to the next phase...');
+//     const result = await middle(data);
+//     console.log(result);
+//     const message= await end(result);
+//     console.log(message);
+//     console.log('We are done');
+// })();
+
+start()
+.then(data=>{
+   console.log(data, "Moving to the next phase...");
+   return middle(data);  
+})
+.then(result=>end(result))
+.then(message=>console.log(message, '. We are done!'));
