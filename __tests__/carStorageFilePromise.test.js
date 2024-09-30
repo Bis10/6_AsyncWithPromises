@@ -24,3 +24,12 @@ describe('Testing with key "licence" and' + ' value "ABC-1" to resolve', () => {
     await expect(search("licence", "ABC-1")).resolves.toEqual(result);
   });
 });
+
+describe('Testing with all parameters missing to reject', ()=>{
+    test('catch', ()=>{
+        expect.assertions(1);
+        return search()
+        .catch(err=>expect(err)
+        .toBe('parameter missing'));
+    })
+})
