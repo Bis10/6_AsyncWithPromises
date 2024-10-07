@@ -1,6 +1,8 @@
 // carStorageFilePromise.test.js
 
-const { search } = require("../carStorageFilePromise");
+const { initSearch } = require("../carStorageV2");
+
+const search = initSearch();
 
 describe('Testing with key "licence" and' + ' value "ABC-1" to resolve', () => {
   const result = [{ model: "Bored T-model", licence: "ABC-1" }];
